@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-search-interface',
@@ -7,8 +6,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./search-interface.component.css']
 })
 export class SearchInterfaceComponent implements OnInit {
-
-  @ViewChild('f') slForm: NgForm;
 
   constructor() { }
 

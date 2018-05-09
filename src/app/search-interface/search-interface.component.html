@@ -1,17 +1,10 @@
-<form #f="ngForm">
-  <div class="row">
-    <div class="col-xs-9">
-      <input
-        type="search"
-        placeholder="Search"
-        id="search"
-        class="form-control"
-        name="search"
-        ngModel
-      >
-    </div>
-    <div class="col-xs-3">
-      <button class="btn btn-success" type="submit">Search</button>
-    </div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-search-form></app-search-form>
   </div>
-</form>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-search-results></app-search-results>
+  </div>
+</div>
