@@ -10,7 +10,11 @@ import { CoreComponent } from './core/core.component';
 import { HeaderComponent } from './core/header/header.component';
 import { PostComponent } from './post/post.component';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
+export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     AppRoutingModule,
     HomeModule,
     SearchInterfaceModule
