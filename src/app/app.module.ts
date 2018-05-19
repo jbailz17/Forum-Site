@@ -9,6 +9,7 @@ import { SearchInterfaceModule } from './search-interface/search-interface.modul
 import { CoreComponent } from './core/core.component';
 import { HeaderComponent } from './core/header/header.component';
 import { PostComponent } from './post/post.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -22,6 +23,7 @@ export const firebaseConfig = environment.firebaseConfig;
     CoreComponent,
     HeaderComponent,
     PostComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,
