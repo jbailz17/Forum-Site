@@ -19,7 +19,7 @@ export class SearchFormComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.searchService.searchPosts(" ");
+    this.searchService.searchPosts('');
     this.searchService.getPosts().subscribe(posts => {
       console.log(posts);
     });

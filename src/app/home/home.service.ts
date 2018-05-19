@@ -4,12 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { Post } from '../shared/post.model';
+import { User } from '../shared/user.model';
 
 @Injectable()
 export class HomeService {
 
     postsCol: AngularFirestoreCollection<Post>;
     posts: Observable<Post[]>;
+
+    usersCol: AngularFirestoreCollection<User>;
+    users: Observable<User[]>;
 
     constructor (private firebase: AngularFirestore) {
     }
@@ -44,5 +48,17 @@ export class HomeService {
             });
         });
         return this.posts;
+    }
+
+    getUsers() {
+        this.usersCol = this.firebase.collection('Users');
+        this.users = this.usersCol.snapshotChanges().map(changes => {
+            return changes.map(a => {
+                const data = a.payload.doc.data() as User;
+                data.ID = a.payload.doc.id;
+                return data;
+            });
+        });
+        return this.users;
     }
 }

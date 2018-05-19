@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HomeService } from '../home.service';
 import { Post } from '../../shared/post.model';
+import { User } from '../../shared/user.model';
 
 @Component({
   selector: 'app-feature-post',
@@ -11,6 +12,7 @@ import { Post } from '../../shared/post.model';
 export class FeaturePostComponent implements OnInit {
 
   posts: Post[];
+  users: User[];
 
   constructor(private homeService: HomeService) { }
 
@@ -19,6 +21,21 @@ export class FeaturePostComponent implements OnInit {
       console.log(posts);
       this.posts = posts;
     });
+    this.homeService.getUsers().subscribe(users => {
+      this.users = users;
+    });
+  }
+
+  getUsername(userID) {
+    let username = '';
+    if (this.users !== undefined) {
+      this.users.map(user => {
+        if (user.ID === userID) {
+          username = user.firstName;
+        }
+      });
+    }
+    return username;
   }
 
 }
