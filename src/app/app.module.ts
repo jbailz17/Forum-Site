@@ -14,6 +14,8 @@ import { EditPostComponent } from './post/edit-post/edit-post.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { DisplayPostComponent } from './post/display-post/display-post.component';
+import { NewPostComponent } from './post/new-post/new-post.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -24,6 +26,8 @@ export const firebaseConfig = environment.firebaseConfig;
     HeaderComponent,
     PostComponent,
     EditPostComponent,
+    DisplayPostComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,

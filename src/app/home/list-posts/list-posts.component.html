@@ -1,20 +1,19 @@
-<!-- 1st post -->
-<div class="row">
+<div class="row" *ngFor="let post of posts">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-6">
-        <h4><a href="#">Post title #1</a></h4>
+        <h4><a href="#">{{post.title}}</a></h4>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <a href="#" class="thumbnail">
             <img src="http://via.placeholder.com/260x180" alt="">
         </a>
       </div>
-      <div class="col-md-8">      
+      <div class="col-md-7">      
         <p>
-          Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+          {{post.content}}
         </p>
         <p><a class="btn btn-primary" href="#">Read more</a></p>
       </div>
@@ -26,83 +25,10 @@
           <i class="icon-user"></i> by <a href="#">John</a> 
           | <i class="icon-calendar"></i> April 20th, 2018
           | <i class="icon-comment"></i> <a href="#">1 Comment</a>
-          | <i class="icon-share"></i> <a href="#">11 Shares</a>
+          | <i class="icon-share"></i> <a href="#">11 Likes</a>
         </p>
       </div>
     </div>
   </div>
+  <br>
 </div>
-<hr>
-
-<!-- 2nd post -->
-<div class="row">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-6">
-        <h4><a href="#">Post title #2</a></h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <a href="#" class="thumbnail">
-            <img src="http://via.placeholder.com/260x180" alt="">
-        </a>
-      </div>
-      <div class="col-md-8">      
-        <p>
-          Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-        </p>
-        <p><a class="btn btn-primary" href="#">Read more</a></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <p></p>
-        <p>
-          <i class="icon-user"></i> by <a href="#">Paul</a> 
-          | <i class="icon-calendar"></i> Apr 18th, 2018
-          | <i class="icon-comment"></i> <a href="#">5 Comments</a>
-          | <i class="icon-share"></i> <a href="#">19 Shares</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
-
-<!-- 3rd post -->
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-6">
-        <h4><a href="#">Post title #3</a></h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <a href="#" class="thumbnail">
-            <img src="http://via.placeholder.com/260x180" alt="">
-        </a>
-      </div>
-      <div class="col-md-8">      
-        <p>
-          Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-        </p>
-        <p><a class="btn btn-primary" href="#">Read more</a></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <p></p>
-        <p>
-          <i class="icon-user"></i> by <a href="#">Lisa</a> 
-          | <i class="icon-calendar"></i> April 14th, 2018
-          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          | <i class="icon-share"></i> <a href="#">28 Shares</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
