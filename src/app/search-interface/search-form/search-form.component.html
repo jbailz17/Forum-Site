@@ -14,11 +14,11 @@
         <ng-ais-hits>
             <ng-template let-hits="hits">
               <div class="list-group-item" *ngFor="let hit of hits">
-                Hit {{hit.objectID}}: 
                 <ng-ais-highlight attribute="name" [hit]="hit"></ng-ais-highlight>
               </div>
             </ng-template>
         </ng-ais-hits>
+        <ng-ais-pagination [totalPages]="50"></ng-ais-pagination>
     </div>
   </div>
 </ng-ais-instantsearch>
