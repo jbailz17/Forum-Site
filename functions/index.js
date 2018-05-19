@@ -3,11 +3,11 @@ const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
 const algoliasearch = require('algoliasearch');
-const algolia = algoliasearch(functions.config().algolia.appid, functions.config().algolia.admin);
+const algolia = algoliasearch('LEGVGPVGUA', 'f5a288afbd282356eac39da76f56c3fd');
 
 const index = algolia.initIndex('forum_site');
 
-
+exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
     const records = [];
 
     admin.firestore().collection('Posts').get().then((sanpshot) => {
@@ -35,3 +35,4 @@ const index = algolia.initIndex('forum_site');
     }).catch(error => {
         console.error('Error getting documents', error);
     }); 
+})
