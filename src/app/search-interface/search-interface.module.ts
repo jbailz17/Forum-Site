@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
+import { NgAisModule } from 'angular-instantsearch';
 
 import { SearchInterfaceComponent } from './search-interface.component';
 import { SearchFormComponent } from './search-form/search-form.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchService } from './search.service';
 
 @NgModule({
     declarations: [
         SearchInterfaceComponent,
         SearchFormComponent,
-        SearchResultsComponent
     ],
     imports: [
         CommonModule,
-        ReactiveFormsModule
-    ]
+        NgAisModule,
+        FormsModule
+    ],
+    providers: [SearchService]
 })
 
 export class SearchInterfaceModule {}

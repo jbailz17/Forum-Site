@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
+import { SearchService } from '../search.service';
+import { Post } from '../../shared/post.model';
+
+import { environment } from '../../../environments/environment';
+import * as instantsearch from 'instantsearch.js';
+
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
@@ -8,19 +14,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class SearchFormComponent implements OnInit {
 
-  searchForm: FormGroup;
+  posts: Post[];
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.initForm()
-  }
-
-  private initForm() {
-    let search = '';
-
-    this.searchForm = new FormGroup({
-      'search': new FormControl(search)
+    this.searchService.searchPosts(" ");
+    this.searchService.getPosts().subscribe(posts => {
+      console.log(posts);
     });
   }
 }
