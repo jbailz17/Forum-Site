@@ -10,7 +10,7 @@ const index = algolia.initIndex('forum_site');
 exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
     const records = [];
 
-    admin.firestore().collection('Posts').get().then((sanpshot) => {
+    admin.firestore().collection('Posts').get().then((snapshot) => {
         snapshot.forEach((doc) => {
             const childKey = doc.id;
             const childData = doc.data();
@@ -21,16 +21,19 @@ exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
             console.log(doc.id, '=>', doc.data());
         });
 
-        index.saveObjects(records).then(() => {
-            console.log('Documents imported into Algolia');
-            process.exit(0);
-            return records;
-        }).catch(error => {
-            console.log('Error when importing documents into Algolia', error);
-            process.exit(1);
+        return index.saveObject(records, (err, content) => {
+            if (err) throw err;
+            console.log('Algolia updated');
         });
 
-        return records;
+        // return index.saveObjects(records).then(() => {
+        //     console.log('Documents imported into Algolia');
+        //     process.exit(0);
+        //     return records;
+        // }).catch(error => {
+        //     console.log('Error when importing documents into Algolia', error);
+        //     process.exit(1);
+        // });
 
     }).catch(error => {
         console.error('Error getting documents', error);

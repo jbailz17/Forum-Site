@@ -25,7 +25,6 @@ export class SearchService {
                 return data;
             });
         });
-        console.log(query);
     }
 
     getPosts() {
