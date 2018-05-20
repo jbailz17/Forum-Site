@@ -5,4 +5,5 @@ export interface Post {
     userID: number;
     likes: number;
     image: string;
+    date: Date;
 }

@@ -8,7 +8,7 @@
 			<div class="post-content">
 				<p>
 					<i class="icon-user"></i> by <a href="#">{{ getUsername(post.userID) }}</a> 
-					| <i class="icon-calendar"></i> Apr 29th, 2018
+					| <i class="icon-calendar"></i> {{ post.date | date }}
 					| <i class="icon-comment"></i> <a href="#">11 Comments</a>
 					| <i class="icon-share"></i> <a href="#">{{ post.likes }} Likes</a>
 				</p>
