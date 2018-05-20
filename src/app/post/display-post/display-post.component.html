@@ -1,3 +1,49 @@
-<p>
-  The number is {{ id }}
-</p>
+<div *ngIf="!noValue">
+<div class="row" *ngFor="let post of posts">
+  <div class="col-md-2"></div>
+	<div class="col-md-8">  
+		<div>
+			<h1>Featured Post</h1>
+			<a href="#" class="thumbnail">
+				<img src="{{ post.image }}" alt="">
+			</a>
+			<div class="post-content">
+				<h3><a href="#">{{ post.title }}</a></h3>
+        <p>{{ post.content }}</p>
+        <p>
+            <i class="icon-user"></i> by <a href="#">{{ getUsername(post.userID) }}</a> 
+            | <i class="icon-calendar"></i> {{ post.date | date }}
+            | <i class="icon-comment"></i> <a href="#">11 Comments</a>
+            | <i class="icon-share"></i> <a href="#">{{ post.likes }} Likes</a>
+          </p>
+				<hr>
+				<!-- COMMENTS -->
+				<div class="row">
+					<div class="col-md-12">  
+						<h1>Comment   </h1>  
+						<hr>  
+						<div class="form-group" >  
+							<form ng-controller="commentControler">  
+								<textarea class="form-control" rows="5" placeholder="Comment..."  ng-model="CommentText"></textarea>  
+								<br>  
+								<button class="btn btn-success pull-right" ng-click="addComment()">Submit</button>  
+								<br>  
+								<hr>   
+							</form>  
+						</div>  
+					</div>  
+				</div>
+			</div>
+		</div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+</div>
+<div class="row" *ngIf="noValue">
+  <div class="col-md-2"></div>
+  <div class="col-md-8" style="text-align: center;">
+    <h1 class="text-danger">Error:</h1>
+    <h3 class="text-danger">This Post Does Not Exist</h3>
+  </div>
+  <div class="col-md-2"></div>
+</div>
