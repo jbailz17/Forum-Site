@@ -8,13 +8,15 @@ import { NewPostComponent } from './new-post/new-post.component';
 
 import { PostRoutingModule } from './post-routing.module';
 import { PostService } from './post.service';
+import { DisplayAllPostsComponent } from './display-all-posts/display-all-posts.component';
 
 @NgModule({
     declarations: [
         PostComponent,
         DisplayPostComponent,
         EditPostComponent,
-        NewPostComponent
+        NewPostComponent,
+        DisplayAllPostsComponent
     ],
     imports: [
         CommonModule,
