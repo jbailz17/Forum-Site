@@ -20,8 +20,7 @@ export class HomeService {
 
     getPosts() {
         this.postsCol = this.firebase.collection('Posts', ref => ref
-            .orderBy('title')
-            .startAfter('hello')
+            .orderBy('date')
             .limit(5)
         );
         this.posts = this.postsCol.snapshotChanges().map(changes => {
@@ -36,8 +35,7 @@ export class HomeService {
 
     getFeaturePost() {
         this.postsCol = this.firebase.collection('Posts', ref => ref
-            .orderBy('title')
-            .startAfter('Suspicion')
+            .orderBy('likes', 'desc')
             .limit(1)
         );
         this.posts = this.postsCol.snapshotChanges().map(changes => {

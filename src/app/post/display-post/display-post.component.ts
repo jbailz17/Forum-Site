@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-post',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayPostComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+      }
+    );
   }
 
 }
