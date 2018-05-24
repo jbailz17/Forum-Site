@@ -10,8 +10,7 @@ import { SearchInterfaceComponent } from './search-interface/search-interface.co
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent },
-    {path: 'admin', component: SearchInterfaceComponent},
-    {path: 'post', component: PostComponent}
+    {path: 'admin', component: SearchInterfaceComponent}
 ];
 
 @NgModule({
