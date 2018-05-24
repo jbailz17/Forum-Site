@@ -22,13 +22,11 @@ export class DisplayPostComponent implements OnInit {
     private postService: PostService) { }
 
   ngOnInit() {
-    console.log("hello")
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
       }
     );
-    this.id="RurhbdEezmYTbmK49m1s"
     console.log(this.id);
     this.postService.getPost(this.id).subscribe(posts => {
       this.posts = posts;
