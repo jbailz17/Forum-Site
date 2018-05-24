@@ -1,0 +1,41 @@
+<div class="row" *ngFor="let post of posts">
+    <a href="post/{{post.ID}}">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 post">
+        <div class="row">
+          <div class="col-md-5">
+              <img *ngIf="post.image != ''" src={{post.image}} alt="" height="200" width="280">
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <h4>{{post.title}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  {{post.content}}
+                </p>
+                <button class="btn btn-primary">Read more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p></p>
+            <p>
+              <i class="icon-user"></i> by {{ getUsername(post.userID) }}
+              | <i class="icon-calendar"></i> {{ post.date | date}}
+              | <i class="icon-comment"></i> <a href="#">1 Comment</a>
+              | <i class="icon-share"></i> {{ post.likes }} Likes
+            </p>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-md-2"></div>
+    </a>
+  </div>

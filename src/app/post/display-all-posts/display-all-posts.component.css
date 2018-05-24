@@ -1,0 +1,19 @@
+h4 {
+    font-weight: bold;
+}
+
+hr {
+    border: solid lightgrey 1px;
+}
+
+.post {
+    border-radius: 5px;
+}
+
+.post:hover {
+    background-color: rgba(204, 204, 204, 0.5);
+}
+
+img {
+    padding-top: 3%;
+}
