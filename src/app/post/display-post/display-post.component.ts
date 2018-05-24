@@ -36,6 +36,7 @@ export class DisplayPostComponent implements OnInit {
       } else {
         this.noValue = false;
       }
+      console.log(this.noValue);
     });
     this.postService.getUsers().subscribe(users => {
       this.users = users;
