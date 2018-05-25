@@ -4,7 +4,7 @@
       <div class="col-md-8 post">
         <div class="row">
           <div class="col-md-5">
-              <img *ngIf="post.image != ''" src={{post.image}} alt="" height="200" width="280">
+              <img *ngIf="post.image != ''" src={{post.image}} alt="" class="img-fluid img-thumbnail">
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-6">
@@ -18,19 +18,19 @@
                 <p>
                   {{post.content}}
                 </p>
-                <button class="btn btn-primary">Read more</button>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p></p>
+            <br>
             <p>
               <i class="icon-user"></i> by {{ getUsername(post.userID) }}
               | <i class="icon-calendar"></i> {{ post.date | date}}
               | <i class="icon-comment"></i> <a href="#">1 Comment</a>
               | <i class="icon-share"></i> {{ post.likes }} Likes
+              <button class="btn btn-primary pull-right">Read more</button>
             </p>
           </div>
         </div>

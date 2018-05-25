@@ -15,5 +15,9 @@ hr {
 }
 
 img {
-    padding-top: 3%;
+    margin-top: 3%;
+}
+
+button {
+    margin-bottom: 1%;
 }
