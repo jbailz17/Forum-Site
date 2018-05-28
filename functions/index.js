@@ -1,18 +1,43 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
-admin.initializeApp(functions.config().firebase);
+const firebase = require("firebase")
+const firestore = require('firebase/firestore')
+firebase.initializeApp({
+    projectId: 'forum-site-4ae89',
+    databaseURL: 'https://forum-site-4ae89.firebaseio.com'
+});
 
 const algoliasearch = require('algoliasearch');
 const algolia = algoliasearch('LEGVGPVGUA', 'f5a288afbd282356eac39da76f56c3fd');
 
-exports.onPostCreated = functions.firestore.document('Posts/{postId}').onCreate((snap, context) => {
-    const post = snap.data();
+exports.updateAlgolia = firebase.firestore().collection('Posts').get().then((snapshot) => {
+    const records = []
+    const index = algolia.initIndex('forum_site');
 
-    post.objectID = context.params.postId;
+    snapshot.forEach((doc) => {
+        const childKey = doc.id;
+        const childData = doc.data();
 
-    const index = client.initIndex('forum_site');
-    return index.saveObject(note);
+        childData.objectID = childKey;
+
+        records.push(childData);
+    });
+
+    index.saveObjects(records)
+    return records
+}).catch((err) => {
+    console.log(err.stack)
+    process.exit(1);
 });
+
+// exports.onPostCreated = functions.firestore.document('Posts/{postId}').then((snap, context) => {
+//     const post = snap.data();
+
+//     post.objectID = context.params.postId;
+
+//     const index = client.initIndex('forum_site');
+//     return index.saveObject(note);
+// });
 
 // exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
 //     const records = [];

@@ -2,7 +2,7 @@
   [config] = "{
     appId: 'LEGVGPVGUA',
     apiKey: '28e3b56f5b2dca34ea6759f1d1b5d45c',
-    indexName: 'getstarted_actors'
+    indexName: 'forum_site'
   }">
   <div class="row">
     <div class="col-xs-12">
@@ -14,7 +14,11 @@
         <ng-ais-hits>
             <ng-template let-hits="hits">
               <div class="list-group-item" *ngFor="let hit of hits">
-                <ng-ais-highlight attribute="name" [hit]="hit"></ng-ais-highlight>
+                <a href="/post/{{hit.ID}}">
+                <ng-ais-highlight attribute="title" [hit]="hit"></ng-ais-highlight>
+                <br>
+                <ng-ais-highlight attribute="content" [hit]="hit"></ng-ais-highlight>
+                </a>a
               </div>
             </ng-template>
         </ng-ais-hits>
