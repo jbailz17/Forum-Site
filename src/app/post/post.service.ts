@@ -7,7 +7,7 @@ import { Post } from '../shared/post.model';
 import { User } from '../shared/user.model';
 
 @Injectable()
-export class HomeService {
+export class PostService {
 
     postsCol: AngularFirestoreCollection<Post>;
     posts: Observable<Post[]>;
@@ -21,7 +21,6 @@ export class HomeService {
     getPosts() {
         this.postsCol = this.firebase.collection('Posts', ref => ref
             .orderBy('date')
-            .limit(5)
         );
         this.posts = this.postsCol.snapshotChanges().map(changes => {
             return changes.map(a => {
@@ -33,10 +32,9 @@ export class HomeService {
         return this.posts;
     }
 
-    getFeaturePost() {
+    getPost(postID) {
         this.postsCol = this.firebase.collection('Posts', ref => ref
-            .orderBy('likes', 'desc')
-            .limit(1)
+            .where('ID', '==', postID)
         );
         this.posts = this.postsCol.snapshotChanges().map(changes => {
             return changes.map(a => {
@@ -47,6 +45,8 @@ export class HomeService {
         });
         return this.posts;
     }
+
+    
 
     getUsers() {
         this.usersCol = this.firebase.collection('Users');

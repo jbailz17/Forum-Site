@@ -6,36 +6,29 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { SearchInterfaceModule } from './search-interface/search-interface.module';
-import { CoreComponent } from './core/core.component';
-import { HeaderComponent } from './core/header/header.component';
-import { PostComponent } from './post/post.component';
-import { EditPostComponent } from './post/edit-post/edit-post.component';
+import { PostModule } from './post/post.module';
+import { CoreModule } from './core/core.module';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { DisplayPostComponent } from './post/display-post/display-post.component';
-import { NewPostComponent } from './post/new-post/new-post.component';
+
 
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoreComponent,
-    HeaderComponent,
-    PostComponent,
-    EditPostComponent,
-    DisplayPostComponent,
-    NewPostComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    CoreModule,
     HomeModule,
-    SearchInterfaceModule
+    SearchInterfaceModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]
