@@ -38,4 +38,10 @@ export class DisplayAllPostsComponent implements OnInit {
     return username;
   }
 
+  retrieveID(url) {
+    let urlParts = url.split('/');
+    let id = urlParts[urlParts.length - 1];
+    return id;
+  }
+
 }

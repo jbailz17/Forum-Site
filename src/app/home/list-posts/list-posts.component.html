@@ -2,8 +2,17 @@
   <a href="post/{{post.ID}}">
     <div class="col-md-12 post">
       <div class="row">
-        <div class="col-md-5">
-            <img *ngIf="post.image != ''" src={{post.image}} alt="" class="img-fluid img-thumbnail">
+        <div class="col-md-5">  
+          <div *ngIf="post.image != '' || post.video != '' else noMedia">
+            <div *ngIf="post.image != '' else video">
+              <img src={{post.image}} alt="" class="img-fluid img-thumbnail">
+            </div>
+            <ng-template #video>
+              <img src="https://img.youtube.com/vi/{{retrieveID(post.video)}}/0.jpg" class="img-fluid img-thumbnail">
+            </ng-template>
+          </div>
+          <ng-template #noMedia>
+          </ng-template>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-6">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { PostService } from '../post.service';
 import { Post } from '../../shared/post.model';
@@ -18,6 +19,7 @@ export class DisplayPostComponent implements OnInit {
   noValue: boolean = false;
 
   constructor(private route: ActivatedRoute,
+    private sanitizer: DomSanitizer,
     private router: Router,
     private postService: PostService) { }
 
@@ -53,6 +55,15 @@ export class DisplayPostComponent implements OnInit {
       });
     }
     return username;
+  }
+
+  retrieveEmbedUrl(url) {
+    let embedUrl = 'https://www.youtube.com/embed/';
+    let urlParts = url.split('/');
+    let id = urlParts[urlParts.length - 1];
+    embedUrl += id;
+    console.log('ID: ', embedUrl);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 
 }
