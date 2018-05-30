@@ -1,7 +1,23 @@
-.list-group-item {
-    margin-top: 0.5em;
+h4 {
+    font-weight: bold;
 }
 
-.list-group-item:hover {
-    background-color: rgba(107,163,255,0.4);
+hr {
+    border: solid lightgrey 1px;
+}
+
+.post {
+    border-radius: 5px;
+}
+
+.post:hover {
+    background-color: rgba(204, 204, 204, 0.5);
+}
+
+img {
+    margin-top: 3%;
+}
+
+button {
+    margin-bottom: 1%;
 }
