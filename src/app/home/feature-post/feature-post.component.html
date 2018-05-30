@@ -14,20 +14,18 @@
 				</p>
 				<h3><a href="#">{{ post.title }}</a></h3>
 				<p>{{ post.content }}</p>
-				<span><a class="btn btn-primary" href="#">Read more</a></span>
+				<span><a class="btn btn-success" href="#">Read more</a></span>
 				<hr>
 				<!-- COMMENTS -->
 				<div class="row">
 					<div class="col-md-12">  
 						<h1>Comment   </h1>  
-						<hr>  
 						<div class="form-group" >  
 							<form ng-controller="commentControler">  
 								<textarea class="form-control" rows="5" placeholder="Comment..."  ng-model="CommentText"></textarea>  
 								<br>  
 								<button class="btn btn-success pull-right" ng-click="addComment()">Submit</button>  
-								<br>  
-								<hr>   
+								<br>   
 							</form>  
 						</div>  
 					</div>  

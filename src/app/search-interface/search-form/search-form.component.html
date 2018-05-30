@@ -1,75 +1,83 @@
-<ng-ais-instantsearch
-  [config] = "{
-    appId: 'LEGVGPVGUA',
-    apiKey: '28e3b56f5b2dca34ea6759f1d1b5d45c',
-    indexName: 'forum_site'
-  }">
-  <div class="row">
-    <div class="col-md-12">
-        <ng-ais-search-box  placeholder=" Search Posts"></ng-ais-search-box>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-        <ng-ais-hits>
-            <ng-template let-hits="hits">
-              <div *ngFor="let hit of hits">
-                <a href="/post/{{hit.ID}}">
-                  <div class="col-md-12 post">
-                      <div class="row">
-                        <div class="col-md-5">
-                          <div *ngIf="hit.image != '' || hit.video != '' else noMedia">
-                            <div *ngIf="hit.image != '' else video">
-                              <img src={{hit.image}} alt="" class="img-fluid img-thumbnail">
-                            </div>
-                            <ng-template #video>
-                              <img src="https://img.youtube.com/vi/{{retrieveID(hit.video)}}/0.jpg" class="img-fluid img-thumbnail">
-                            </ng-template>
-                          </div>
-                          <ng-template #noMedia>
-                          </ng-template>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-6">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <h4>
-                                <ng-ais-highlight attribute="title" [hit]="hit"></ng-ais-highlight>
-                              </h4>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <p>
-                                <ng-ais-highlight attribute="content" [hit]="hit"></ng-ais-highlight>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12">
-                          <br>
-                          <p>
-                            <i class="icon-user"></i> by {{ getUsername(hit.userID) }}
-                            | <i class="icon-calendar"></i> {{ hit.date | date}}
-                            | <i class="icon-comment"></i> <a href="#">1 Comment</a>
-                            | <i class="icon-share"></i> {{ hit.likes }} Likes
-                            <button class="btn btn-primary pull-right">Read more</button>
-                          </p>
-                        </div>
-                      </div>
-                      <hr>
-                    </div>
-                </a>
-              </div>
-            </ng-template>
-        </ng-ais-hits>
-        <div class="row">
-          <div class="col-md-12">
-            <ng-ais-pagination [totalPages]="50"></ng-ais-pagination>
-          </div>
+<div class="row">
+  <div class="col-md-12">
+    <ng-ais-instantsearch
+      [config] = "{
+        appId: 'LEGVGPVGUA',
+        apiKey: '28e3b56f5b2dca34ea6759f1d1b5d45c',
+        indexName: 'forum_site'
+      }">
+      <div class="row">
+        <div class="col-md-12">
+            <ng-ais-search-box  placeholder=" Search Posts"></ng-ais-search-box>
         </div>
-    </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <ng-ais-hits>
+                <ng-template let-hits="hits">
+                  <div *ngFor="let hit of hits">
+                    <a href="/post/{{hit.ID}}">
+                      <div class="col-md-12 post">
+                          <div class="row">
+                            <div class="col-md-5">
+                              <div *ngIf="hit.image != '' || hit.video != '' else noMedia">
+                                <div *ngIf="hit.image != '' else video">
+                                  <img src={{hit.image}} alt="" class="img-fluid img-thumbnail">
+                                </div>
+                                <ng-template #video>
+                                  <img src="https://img.youtube.com/vi/{{retrieveID(hit.video)}}/0.jpg" class="img-fluid img-thumbnail">
+                                </ng-template>
+                              </div>
+                              <ng-template #noMedia>
+                              </ng-template>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-6">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <h4>
+                                    <ng-ais-highlight attribute="title" [hit]="hit"></ng-ais-highlight>
+                                  </h4>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <p>
+                                    <ng-ais-highlight attribute="content" [hit]="hit"></ng-ais-highlight>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-8">
+                                      <i class="icon-user"></i> by {{ getUsername(hit.userID) }}
+                                        | <i class="icon-calendar"></i> {{ hit.date | date}}
+                                        | <i class="icon-comment"></i> 1 Comment
+                                        | <i class="icon-share"></i> {{ hit.likes }} Likes
+                                  </div>
+                                  <div class="col-md-4 read-button">
+                                    <button class="btn btn-success">Read more</button>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+                    </a>
+                  </div>
+                </ng-template>
+            </ng-ais-hits>
+            <div class="row">
+              <div class="col-md-12">
+                <ng-ais-pagination [totalPages]="50"></ng-ais-pagination>
+              </div>
+            </div>
+        </div>
+      </div>
+    </ng-ais-instantsearch>
   </div>
-</ng-ais-instantsearch>
+</div>
