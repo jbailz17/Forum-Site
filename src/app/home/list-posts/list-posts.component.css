@@ -3,7 +3,7 @@ h4 {
 }
 
 hr {
-    border: solid lightgrey 1px;
+    border: solid rgba(37, 120, 253, 0.4) 1px;
 }
 
 .post {
@@ -20,4 +20,12 @@ img {
 
 button {
     margin-bottom: 2%;
+}
+
+p {
+    color: rgb(48, 48, 48);
+}
+
+.read-button {
+    text-align: right;
 }

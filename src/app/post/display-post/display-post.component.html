@@ -1,28 +1,41 @@
 <div *ngIf="!noValue">
   <div class="row" *ngFor="let post of posts">
-    <div class="col-md-8 col-md-offset-2">  
-      <div>
-      <div class="col-md-12">
-        <img src="{{ post.image }}" class="img-fluid" alt="">
-      </div>
+    <div class="col-md-6 col-md-offset-3">  
       <div class="post-content">
 
-        <h3><a href="#">{{ post.title }}</a></h3>
+        <h3>{{ post.title }}</h3>
         <p>{{ post.content }}</p>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div *ngIf="post.image != '' || post.video != ''">
+              <div *ngIf="post.image != '' else video">
+                <img src="{{ post.image }}" class="img-fluid" alt="">
+              </div>
+              <ng-template #video>
+                <div class="video">
+                  <iframe 
+                    [src]="retrieveEmbedUrl(post.video)" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
         <p>
-          <i class="icon-user"></i> by <a href="#">{{ getUsername(post.userID) }}</a> 
-          | <i class="icon-calendar"></i> {{ post.date | date }}
-          | <i class="icon-comment"></i> <a href="#">11 Comments</a>
-          | <i class="icon-share"></i> <a href="#">{{ post.likes }} Likes</a>
+          <i class="icon-user"></i> by {{ getUsername(post.userID) }} 
+            | <i class="icon-calendar"></i> {{ post.date | date }}
+            | <i class="icon-comment"></i> 11 Comments
+            | <i class="icon-share"></i> {{ post.likes }} Likes
         </p>
         <button class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> Edit</button>
         <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-        <hr>
         <!-- COMMENTS -->
         <div class="row">
           <div class="col-sm-9 col-sm-offset-1">  
             <h4>Write a comment</h4>  
-
             <hr>  
             <div class="form-group" >  
               <form ng-controller="commentControler">  
@@ -60,15 +73,13 @@
         </div><!-- row -->
         <!-- INDIVIDUAL COMMENT ENDS -->
       </div>
-      </div>
     </div>
   </div>
 </div>
-  <div class="row" *ngIf="noValue">
-  <div class="col-md-2"></div>
-  <div class="col-md-8" style="text-align: center;">
-    <h1 class="text-danger">Error:</h1>
-    <h3 class="text-danger">This Post Does Not Exist</h3>
-  </div>
-  <div class="col-md-2"></div>
+<div class="row" *ngIf="noValue">
+<div class="col-md-2"></div>
+<div class="col-md-8" style="text-align: center;">
+  <h1 class="text-danger">Error:</h1>
+  <h3 class="text-danger">This Post Does Not Exist</h3>
+</div>
 </div>

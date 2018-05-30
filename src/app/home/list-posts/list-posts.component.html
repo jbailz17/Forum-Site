@@ -2,13 +2,23 @@
   <a href="post/{{post.ID}}">
     <div class="col-md-12 post">
       <div class="row">
-        <div class="col-md-5">
-            <img *ngIf="post.image != ''" src={{post.image}} alt="" class="img-fluid img-thumbnail">
+        <div class="col-md-5">  
+          <div *ngIf="post.image != '' || post.video != '' else noMedia">
+            <div *ngIf="post.image != '' else video">
+              <img src={{post.image}} alt="" class="img-fluid img-thumbnail">
+            </div>
+            <ng-template #video>
+              <img src="https://img.youtube.com/vi/{{retrieveID(post.video)}}/0.jpg" class="img-fluid img-thumbnail">
+            </ng-template>
+          </div>
+          <ng-template #noMedia>
+          </ng-template>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-6">
-          <div class="col-md-12">
-            <h4>{{post.title}}</h4>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>{{post.title}}</h4>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-12">
@@ -22,13 +32,17 @@
       <div class="row">
         <div class="col-md-12">
           <br>
-          <p>
-            <i class="icon-user"></i> by {{ getUsername(post.userID) }}
-            | <i class="icon-calendar"></i> {{ post.date | date}}
-            | <i class="icon-comment"></i> <a href="#">1 Comment</a>
-            | <i class="icon-share"></i> {{ post.likes }} Likes
-            <button class="btn btn-primary pull-right">Read more</button>
-          </p>
+          <div class="row">
+            <div class="col-md-8">
+                <i class="icon-user"></i> by {{ getUsername(post.userID) }}
+                  | <i class="icon-calendar"></i> {{ post.date | date}}
+                  | <i class="icon-comment"></i> 1 Comment
+                  | <i class="icon-share"></i> {{ post.likes }} Likes
+            </div>
+            <div class="col-md-4 read-button">
+              <button class="btn btn-success">Read more</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

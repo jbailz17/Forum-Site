@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { SearchService } from '../search.service';
 import { Post } from '../../shared/post.model';
+import { User } from '../../shared/user.model';
 
 import { environment } from '../../../environments/environment';
 import * as instantsearch from 'instantsearch.js';
@@ -15,13 +16,32 @@ import * as instantsearch from 'instantsearch.js';
 export class SearchFormComponent implements OnInit {
 
   posts: Post[];
+  users: User[];
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.searchService.searchPosts('');
-    this.searchService.getPosts().subscribe(posts => {
-      console.log(posts);
+    this.searchService.getUsers().subscribe(users => {
+      this.users = users;
+      console.log(users);
     });
+  }
+
+  getUsername(userID) {
+    let username = '';
+    if (this.users !== undefined) {
+      this.users.map(user => {
+        if (user.ID === userID) {
+          username = user.firstName;
+        }
+      });
+    }
+    return username;
+  }
+
+  retrieveID(url) {
+    let urlParts = url.split('/');
+    let id = urlParts[urlParts.length - 1];
+    return id;
   }
 }
