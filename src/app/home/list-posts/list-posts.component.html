@@ -40,7 +40,7 @@
                   | <i class="icon-share"></i> {{ post.likes }} Likes
             </div>
             <div class="col-md-4 read-button">
-              <button class="btn btn-success">Read more</button>
+              <button class="btn btn-success" (click)="readMore(post.id)">Read more</button>
             </div>
           </div>
         </div>

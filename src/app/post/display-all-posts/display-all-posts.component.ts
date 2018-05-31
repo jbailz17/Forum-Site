@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PostService } from '../post.service';
 import { Post } from '../../shared/post.model';
@@ -14,7 +15,8 @@ export class DisplayAllPostsComponent implements OnInit {
   posts: Post[];
   users: User[];
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+    private router: Router) { }
 
   ngOnInit() {
     this.postService.getPosts().subscribe(posts => {
@@ -42,6 +44,10 @@ export class DisplayAllPostsComponent implements OnInit {
     let urlParts = url.split('/');
     let id = urlParts[urlParts.length - 1];
     return id;
+  }
+
+  readMore(id) {
+    this.router.navigate(['post/', id]);
   }
 
 }

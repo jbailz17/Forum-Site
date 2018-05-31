@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HomeService } from '../home.service';
 import { Post } from '../../shared/post.model';
@@ -14,7 +15,8 @@ export class FeaturePostComponent implements OnInit {
   posts: Post[];
   users: User[];
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService,
+    private router: Router) { }
 
   ngOnInit() {
     this.homeService.getFeaturePost().subscribe(posts => {
@@ -36,6 +38,11 @@ export class FeaturePostComponent implements OnInit {
       });
     }
     return username;
+  }
+
+  readMore(id) {
+    console.log("ID: ",id);
+    this.router.navigate(['post/', id]);
   }
 
 }

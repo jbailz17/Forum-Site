@@ -6,4 +6,5 @@ export interface Post {
     likes: number;
     image: string;
     date: Date;
+    video: string;
 }

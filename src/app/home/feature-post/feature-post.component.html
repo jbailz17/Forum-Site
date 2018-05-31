@@ -14,7 +14,7 @@
 				</p>
 				<h3><a href="#">{{ post.title }}</a></h3>
 				<p>{{ post.content }}</p>
-				<span><a class="btn btn-success" href="#">Read more</a></span>
+				<button class="btn btn-success" (click)="readMore(post.ID)">Read more</button>
 				<hr>
 				<!-- COMMENTS -->
 				<div class="row">
