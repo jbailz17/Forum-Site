@@ -21,7 +21,6 @@ export class DisplayAllPostsComponent implements OnInit {
   ngOnInit() {
     this.postService.getPosts().subscribe(posts => {
       this.posts = posts;
-      console.log(this.posts);
     });
     this.postService.getUsers().subscribe(users => {
       this.users = users;

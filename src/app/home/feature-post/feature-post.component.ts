@@ -20,7 +20,6 @@ export class FeaturePostComponent implements OnInit {
 
   ngOnInit() {
     this.homeService.getFeaturePost().subscribe(posts => {
-      console.log(posts);
       this.posts = posts;
     });
     this.homeService.getUsers().subscribe(users => {
@@ -41,7 +40,6 @@ export class FeaturePostComponent implements OnInit {
   }
 
   readMore(id) {
-    console.log("ID: ",id);
     this.router.navigate(['post/', id]);
   }
 

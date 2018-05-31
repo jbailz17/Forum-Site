@@ -20,7 +20,6 @@ export class ListPostsComponent implements OnInit {
 
   ngOnInit() {
     this.homeService.getPosts().subscribe(posts => {
-      console.log(posts);
       this.posts = posts;
     });
     this.homeService.getUsers().subscribe(users => {

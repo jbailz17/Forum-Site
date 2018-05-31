@@ -35,8 +35,6 @@ export class EditPostComponent implements OnInit {
       this.posts = posts;
       this.rebuildForm();
     });
-    console.log
-    ('ID: ', this.id);
     this.initForm();
   }
 

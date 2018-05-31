@@ -25,7 +25,6 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
     this.searchService.getUsers().subscribe(users => {
       this.users = users;
-      console.log(users);
     });
   }
 
