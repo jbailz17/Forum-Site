@@ -24,11 +24,11 @@
             </div>
           </div>
         </div>
-        <p>
-          <i class="icon-user"></i> by {{ getUsername(post.userID) }} 
-            | <i class="icon-calendar"></i> {{ post.date | date }}
-            | <i class="icon-comment"></i> 11 Comments
-            | <i class="icon-share"></i> {{ post.likes }} Likes
+        <p id="post-information">
+          by {{ getUsername(post.userID) }}
+          | {{ post.date | date }}
+          | 11 <span class="glyphicon glyphicon-comment"></span>
+          | {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
         </p>
         <button class="btn btn-success" (click)="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
         <button class="btn btn-danger" (click)="deletePost()"><span class="glyphicon glyphicon-trash"></span> Delete</button>

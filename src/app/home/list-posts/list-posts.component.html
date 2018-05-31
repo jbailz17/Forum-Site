@@ -34,10 +34,12 @@
           <br>
           <div class="row">
             <div class="col-md-8">
-                <i class="icon-user"></i> by {{ getUsername(post.userID) }}
-                  | <i class="icon-calendar"></i> {{ post.date | date}}
-                  | <i class="icon-comment"></i> 1 Comment
-                  | <i class="icon-share"></i> {{ post.likes }} Likes
+              <p id="post-information">
+                by {{ getUsername(post.userID) }}
+                | {{ post.date | date }}
+                | 11 <span class="glyphicon glyphicon-comment"></span>
+                | {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
+              </p>
             </div>
             <div class="col-md-4 read-button">
               <button class="btn btn-success" (click)="readMore(post.id)">Read more</button>
