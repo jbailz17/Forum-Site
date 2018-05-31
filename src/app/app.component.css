@@ -1,0 +1,4 @@
+.main {
+    background-image: linear-gradient(rgba(37, 120, 253, 0.6),rgba(229,229,229,0.2));
+    background-blend-mode: luminosity;
+}

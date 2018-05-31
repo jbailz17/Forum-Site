@@ -1,0 +1,55 @@
+<div class="row" *ngFor="let post of posts">
+    <a href="post/{{post.ID}}">
+      <div class="col-md-8 col-md-offset-2 post">
+        <div class="row">
+          <div class="col-md-5">
+            <div *ngIf="post.image != '' || post.video != '' else noMedia">
+              <div *ngIf="post.image != '' else video">
+                <img src={{post.image}} alt="" class="img-fluid img-thumbnail">
+              </div>
+              <ng-template #video>
+                <img src="https://img.youtube.com/vi/{{retrieveID(post.video)}}/0.jpg" class="img-fluid img-thumbnail">
+              </ng-template>
+            </div>
+            <ng-template #noMedia>
+            </ng-template>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <h4>{{post.title}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>
+                  {{post.content}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                  <p id="post-information">
+                    by {{ getUsername(post.userID) }}
+                    | {{ post.date | date }}
+                    | 11 <span class="glyphicon glyphicon-comment"></span>
+                    | {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
+                  </p>
+                </div>
+                <div class="col-md-4 read-button">
+                  <button class="btn btn-success" (click)="readMore(post.id)">Read more</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-md-2"></div>
+    </a>
+  </div>

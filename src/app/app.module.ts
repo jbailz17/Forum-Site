@@ -6,24 +6,31 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { SearchInterfaceModule } from './search-interface/search-interface.module';
-import { CoreComponent } from './core/core.component';
-import { HeaderComponent } from './core/header/header.component';
-import { PostComponent } from './post/post.component';
+import { PostModule } from './post/post.module';
+import { CoreModule } from './core/core.module';
+
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 
+export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoreComponent,
-    HeaderComponent,
-    PostComponent,
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     AppRoutingModule,
+    NgFlashMessagesModule.forRoot(),
+    CoreModule,
     HomeModule,
-    SearchInterfaceModule
+    SearchInterfaceModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

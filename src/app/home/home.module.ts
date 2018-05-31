@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { FeaturePostComponent } from './feature-post/feature-post.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
+import { HomeService } from './home.service';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { ListPostsComponent } from './list-posts/list-posts.component';
     ],
     imports: [
         CommonModule
-    ]
+    ],
+    providers: [HomeService]
 })
 
 export class HomeModule {}
