@@ -29,16 +29,14 @@ export class DisplayPostComponent implements OnInit {
         this.id = params['id'];
       }
     );
-    console.log(this.id);
+
     this.postService.getPost(this.id).subscribe(posts => {
       this.posts = posts;
-      console.log(this.posts);
       if (this.posts.length < 1) {
         this.noValue = true;
       } else {
         this.noValue = false;
       }
-      console.log(this.noValue);
     });
     this.postService.getUsers().subscribe(users => {
       this.users = users;
@@ -62,7 +60,6 @@ export class DisplayPostComponent implements OnInit {
     let urlParts = url.split('/');
     let id = urlParts[urlParts.length - 1];
     embedUrl += id;
-    console.log('ID: ', embedUrl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 

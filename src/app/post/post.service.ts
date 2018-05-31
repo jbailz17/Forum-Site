@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import * as firebase1 from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 import { Post } from '../shared/post.model';
 import { User } from '../shared/user.model';
@@ -16,7 +17,8 @@ export class PostService {
     usersCol: AngularFirestoreCollection<User>;
     users: Observable<User[]>;
 
-    constructor (private firebase: AngularFirestore) {
+    constructor (private firebase: AngularFirestore,
+        private flashMessage: NgFlashMessageService) {
     }
 
     getPosts() {
@@ -70,6 +72,12 @@ export class PostService {
         }).catch(function(error) {
             console.log('An error occurred: ', error);
         });
+        this.flashMessage.showFlashMessage({
+            messages: ['Successfully updated post!'],
+            dismissible: true,
+            timeout: 2000,
+            type: 'success'
+        });
     }
 
     addPost(values) {
@@ -89,6 +97,12 @@ export class PostService {
         }).catch(function(error) {
             console.error('An error occurred: ', error);
         });
+        this.flashMessage.showFlashMessage({
+            messages: ['Successfully created post!'],
+            dismissible: true,
+            timeout: 2000,
+            type: 'success'
+        });
     }
 
     deletePost(id) {
@@ -96,6 +110,12 @@ export class PostService {
             console.log('Successfully deleted post.');
         }).catch(function(error) {
             console.error('Error removing post: ', error);
+        });
+        this.flashMessage.showFlashMessage({
+            messages: ['Successfully deleted post!'],
+            dismissible: true,
+            timeout: 2000,
+            type: 'danger'
         });
     }
 }

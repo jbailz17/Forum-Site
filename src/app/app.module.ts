@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 
 export const firebaseConfig = environment.firebaseConfig;
@@ -25,6 +26,7 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    NgFlashMessagesModule.forRoot(),
     CoreModule,
     HomeModule,
     SearchInterfaceModule,
