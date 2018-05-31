@@ -1,3 +1,14 @@
 .navbar {
     border-radius: 0px;
 }
+
+.navbar-toggle {
+    color: white;
+    align-content: left;
+    margin-left: 2%;
+    border: solid white 1px;
+}
+
+.glyphicon {
+    font-size: 150%;
+}

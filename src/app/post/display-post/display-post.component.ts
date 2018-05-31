@@ -72,7 +72,7 @@ export class DisplayPostComponent implements OnInit {
 
   deletePost() {
     this.postService.deletePost(this.id);
-    this.router.navigate(['/']);
+    this.router.navigate(['/post']);
   }
 
 }
