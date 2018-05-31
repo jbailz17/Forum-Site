@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { SearchService } from '../search.service';
 import { Post } from '../../shared/post.model';
@@ -18,7 +19,8 @@ export class SearchFormComponent implements OnInit {
   posts: Post[];
   users: User[];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService,
+    private router: Router) { }
 
   ngOnInit() {
     this.searchService.getUsers().subscribe(users => {
@@ -43,5 +45,9 @@ export class SearchFormComponent implements OnInit {
     let urlParts = url.split('/');
     let id = urlParts[urlParts.length - 1];
     return id;
+  }
+
+  readMore(id) {
+    this.router.navigate(['post/', id]);
   }
 }

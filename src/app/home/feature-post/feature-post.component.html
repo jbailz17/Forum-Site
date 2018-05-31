@@ -6,30 +6,16 @@
 				<img src="{{ post.image }}" alt="">
 			</a>
 			<div class="post-content">
-				<p>
-					<i class="icon-user"></i> by <a href="#">{{ getUsername(post.userID) }}</a> 
-					| <i class="icon-calendar"></i> {{ post.date | date }}
-					| <i class="icon-comment"></i> <a href="#">11 Comments</a>
-					| <i class="icon-share"></i> <a href="#">{{ post.likes }} Likes</a>
-				</p>
+				<p id="post-information">
+					by {{ getUsername(post.userID) }}
+					| {{ post.date | date }}
+					| 11 <span class="glyphicon glyphicon-comment"></span>
+					| {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
+				  </p>
 				<h3><a href="#">{{ post.title }}</a></h3>
 				<p>{{ post.content }}</p>
-				<span><a class="btn btn-success" href="#">Read more</a></span>
+				<button class="btn btn-success" (click)="readMore(post.ID)">Read more</button>
 				<hr>
-				<!-- COMMENTS -->
-				<div class="row">
-					<div class="col-md-12">  
-						<h1>Comment   </h1>  
-						<div class="form-group" >  
-							<form ng-controller="commentControler">  
-								<textarea class="form-control" rows="5" placeholder="Comment..."  ng-model="CommentText"></textarea>  
-								<br>  
-								<button class="btn btn-success pull-right" ng-click="addComment()">Submit</button>  
-								<br>   
-							</form>  
-						</div>  
-					</div>  
-				</div>
 			</div>
 		</div>
 	</div>

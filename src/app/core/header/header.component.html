@@ -1,9 +1,28 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a routerLinkActive="active" routerLink="" class="navbar-brand">Home</a>
-      <a routerLinkActive="active" routerLink="/post" class="navbar-brand">Posts</a>
-      <a routerLinkActive="active" routerLink="/admin" class="navbar-brand">Search</a>
+      <button 
+        class="pull-left navbar-toggle" 
+        type="button" 
+        (click)="isCollapsed = !isCollapsed" >
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </button>
+    </div>
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLinkActive="active" routerLink="">Home</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/post">Posts</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/admin">Search</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/post/new">Create Post</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

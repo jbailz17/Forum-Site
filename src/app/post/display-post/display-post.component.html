@@ -24,32 +24,32 @@
             </div>
           </div>
         </div>
-        <p>
-          <i class="icon-user"></i> by {{ getUsername(post.userID) }} 
-            | <i class="icon-calendar"></i> {{ post.date | date }}
-            | <i class="icon-comment"></i> 11 Comments
-            | <i class="icon-share"></i> {{ post.likes }} Likes
+        <p id="post-information">
+          by {{ getUsername(post.userID) }}
+          | {{ post.date | date }}
+          | 11 <span class="glyphicon glyphicon-comment"></span>
+          | {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
         </p>
-        <button class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        <button class="btn btn-success" (click)="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+        <button class="btn btn-danger" (click)="deletePost()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
         <!-- COMMENTS -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-9 col-sm-offset-1">  
             <h4>Write a comment</h4>  
             <hr>  
-            <div class="form-group" >  
-              <form ng-controller="commentControler">  
-                <textarea class="form-control" rows="5" placeholder="Comment..."  ng-model="CommentText"></textarea>  
+            <div class="" >  
+              <form>  
+                <textarea class="" rows="5" placeholder="Comment..."  ></textarea>  
                 <br>  
-                <button class="btn btn-primary pull-right" ng-click="addComment()">Post</button>  
+                <button class="btn btn-primary pull-right">Post</button>  
                 <br>  
                 <hr>   
               </form>  
             </div>
-          </div>  
-        </div>
+          </div>   
+        </div> -->
         <!-- INDIVIDUAL COMMENT BEGINS   -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-9 col-sm-offset-1">
             <h2>Comments</h2>
             <div class="col-md-12">
@@ -66,11 +66,11 @@
                   aaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaa 
                   aaaaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaa
                   aaaaaaaaaaaaaaaaaa
-                </div><!-- /panel-body -->
-              </div><!-- /panel panel-default -->
-            </div><!-- /col-sm-5 -->
-          </div><!-- /col-sm-9 -->
-        </div><!-- row -->
+                </div><!-- /panel-body 
+              </div><!-- /panel panel-default 
+            </div><!-- /col-sm-5 
+          </div><!-- /col-sm-9 
+        </div> -->
         <!-- INDIVIDUAL COMMENT ENDS -->
       </div>
     </div>

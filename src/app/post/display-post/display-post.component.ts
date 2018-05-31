@@ -33,7 +33,7 @@ export class DisplayPostComponent implements OnInit {
     this.postService.getPost(this.id).subscribe(posts => {
       this.posts = posts;
       console.log(this.posts);
-      if(this.posts.length < 1) {
+      if (this.posts.length < 1) {
         this.noValue = true;
       } else {
         this.noValue = false;
@@ -42,9 +42,9 @@ export class DisplayPostComponent implements OnInit {
     });
     this.postService.getUsers().subscribe(users => {
       this.users = users;
-    })
+    });
   }
-  
+
   getUsername(userID) {
     let username = '';
     if (this.users !== undefined) {
@@ -64,6 +64,15 @@ export class DisplayPostComponent implements OnInit {
     embedUrl += id;
     console.log('ID: ', embedUrl);
     return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+  }
+
+  edit() {
+    this.router.navigate(['./edit'], {relativeTo: this.route});
+  }
+
+  deletePost() {
+    this.postService.deletePost(this.id);
+    this.router.navigate(['/post']);
   }
 
 }

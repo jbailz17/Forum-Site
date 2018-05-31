@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PostComponent } from './post.component';
 import { DisplayPostComponent } from './display-post/display-post.component';
@@ -20,6 +21,7 @@ import { DisplayAllPostsComponent } from './display-all-posts/display-all-posts.
     ],
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         PostRoutingModule
     ],
     providers: [PostService]

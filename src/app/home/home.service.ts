@@ -20,7 +20,7 @@ export class HomeService {
 
     getPosts() {
         this.postsCol = this.firebase.collection('Posts', ref => ref
-            .orderBy('date')
+            .orderBy('date', 'desc')
             .limit(5)
         );
         this.posts = this.postsCol.snapshotChanges().map(changes => {
