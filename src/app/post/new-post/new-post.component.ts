@@ -44,10 +44,11 @@ export class NewPostComponent implements OnInit {
     this.postVideo = '';
 
     this.createPostForm = new FormGroup({
-      'title': new FormControl(this.postTitle),
-      'content': new FormControl(this.postContent),
+      'title': new FormControl(this.postTitle, Validators.required),
+      'content': new FormControl(this.postContent, Validators.required),
       'image': new FormControl(this.postImage),
-      'video': new FormControl(this.postVideo)
+      'video': new FormControl(this.postVideo,
+        Validators.pattern('^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+'))
     });
   }
 }

@@ -55,7 +55,8 @@ export class EditPostComponent implements OnInit {
       'title': new FormControl(this.postTitle),
       'content': new FormControl(this.postContent),
       'image': new FormControl(this.postImage),
-      'video': new FormControl(this.postVideo)
+      'video': new FormControl(this.postVideo,
+        Validators.pattern('^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+'))
     });
   }
 

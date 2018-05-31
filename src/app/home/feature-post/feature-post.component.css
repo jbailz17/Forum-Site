@@ -2,7 +2,18 @@ hr {
     border: solid rgba(37, 120, 253, 0.4) 1px;
 }
 
+h3 {
+    color: rgb(0, 68, 194);
+}
+
 
 #post-information {
     color: rgb(30, 109, 255);
+}
+
+@media (max-width: 990px) {
+    .read-button {
+        margin-top: 10%;
+        text-align: center;
+    }
 }

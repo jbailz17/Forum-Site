@@ -3,15 +3,14 @@
     <div class="col-md-6 col-md-offset-3">  
       <div class="post-content">
 
-        <h3>{{ post.title }}</h3>
+        <h1>{{ post.title }}</h1>
+        <br>
         <p>{{ post.content }}</p>
+        <br>
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div *ngIf="post.image != '' || post.video != ''">
-              <div *ngIf="post.image != '' else video">
-                <img src="{{ post.image }}" class="img-fluid" alt="">
-              </div>
-              <ng-template #video>
+              <div *ngIf="post.video != ''">
                 <div class="video">
                   <iframe 
                     [src]="retrieveEmbedUrl(post.video)" 
@@ -20,18 +19,27 @@
                     allowfullscreen>
                   </iframe>
                 </div>
-              </ng-template>
+                <br>
+                <br>
+              </div>
+              <div *ngIf="post.image != '' else video">
+                <img src="{{ post.image }}" class="img-fluid" alt="">
+              </div>
             </div>
           </div>
         </div>
+        <br>
         <p id="post-information">
           by {{ getUsername(post.userID) }}
           | {{ post.date | date }}
           | 11 <span class="glyphicon glyphicon-comment"></span>
           | {{ post.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
         </p>
-        <button class="btn btn-success" (click)="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-        <button class="btn btn-danger" (click)="deletePost()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        <br>
+        <div class="function-buttons">
+            <button class="btn btn-success" (click)="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+            <button class="btn btn-danger" (click)="deletePost()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
         <!-- COMMENTS -->
         <!-- <div class="row">
           <div class="col-sm-9 col-sm-offset-1">  

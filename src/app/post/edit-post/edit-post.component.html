@@ -52,11 +52,12 @@
             </div>
           </div>
         </div> 
-        <div class="row">
+        <div class="row function-buttons">
           <div class="col-md-12">
             <button
               type="submit"
               class="btn btn-success"
+              [disabled]="!editPostForm.valid"
             ><span class="glyphicon glyphicon-edit"></span> Save Changes</button>
             <button
               type="button"

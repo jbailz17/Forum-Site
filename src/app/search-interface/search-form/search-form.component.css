@@ -1,5 +1,6 @@
 h4 {
     font-weight: bold;
+    color: rgb(0, 68, 194);
 }
 
 hr {
@@ -32,4 +33,11 @@ p {
 
 #post-information {
     color: rgb(30, 109, 255);
+}
+
+@media (max-width: 990px) {
+    .read-button {
+        margin-top: 10%;
+        text-align: center;
+    }
 }

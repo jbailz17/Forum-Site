@@ -6,9 +6,8 @@
     color: white;
     align-content: left;
     margin-left: 2%;
-    border: solid white 1px;
+    border: 0px;
 }
-
 .glyphicon {
     font-size: 150%;
 }
