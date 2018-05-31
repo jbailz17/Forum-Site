@@ -71,8 +71,12 @@ export class DisplayPostComponent implements OnInit {
   }
 
   deletePost() {
-    this.postService.deletePost(this.id);
-    this.router.navigate(['/post']);
+    let confirmed = false;
+    confirmed = confirm('Are you sure you would like to delete this post?');
+    if (confirmed) {
+      this.postService.deletePost(this.id);
+      this.router.navigate(['/post']);
+    }
   }
 
 }
