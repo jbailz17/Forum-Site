@@ -40,46 +40,6 @@
             <button class="btn btn-success" (click)="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
             <button class="btn btn-danger" (click)="deletePost()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
         </div>
-        <!-- COMMENTS -->
-        <!-- <div class="row">
-          <div class="col-sm-9 col-sm-offset-1">  
-            <h4>Write a comment</h4>  
-            <hr>  
-            <div class="" >  
-              <form>  
-                <textarea class="" rows="5" placeholder="Comment..."  ></textarea>  
-                <br>  
-                <button class="btn btn-primary pull-right">Post</button>  
-                <br>  
-                <hr>   
-              </form>  
-            </div>
-          </div>   
-        </div> -->
-        <!-- INDIVIDUAL COMMENT BEGINS   -->
-        <!-- <div class="row">
-          <div class="col-sm-9 col-sm-offset-1">
-            <h2>Comments</h2>
-            <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
-                  <i class="fa fa-reply pull-right"></i>
-                  <i class="fa fa-heart pull-right"></i>
-                </div>
-                <div class="col-md-12 panel-body">
-                  Panel contentaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaa 
-                  aaaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaa aaaaaa aaaaaaaaaaa aaaaaaaaaaaa 
-                  aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaa
-                  aaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaa 
-                  aaaaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaa
-                  aaaaaaaaaaaaaaaaaa
-                </div><!-- /panel-body 
-              </div><!-- /panel panel-default 
-            </div><!-- /col-sm-5 
-          </div><!-- /col-sm-9 
-        </div> -->
-        <!-- INDIVIDUAL COMMENT ENDS -->
       </div>
     </div>
   </div>
@@ -87,7 +47,7 @@
 <div class="row" *ngIf="noValue">
 <div class="col-md-2"></div>
 <div class="col-md-8" style="text-align: center;">
-  <h1 class="text-danger">Error:</h1>
+  <h2 class="text-danger">Error:</h2>
   <h3 class="text-danger">This Post Does Not Exist</h3>
 </div>
 </div>
