@@ -14,7 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
     imports: [
         CommonModule,
         AppRoutingModule,
-        NgbModule.forRoot()
+        NgbModule
     ],
     exports: [
         HeaderComponent,
